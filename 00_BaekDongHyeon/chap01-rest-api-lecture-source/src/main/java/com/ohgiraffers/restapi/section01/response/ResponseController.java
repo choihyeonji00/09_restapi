@@ -1,6 +1,7 @@
 package com.ohgiraffers.restapi.section01.response;
 
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -72,6 +73,12 @@ public class ResponseController {
     return getClass()
         .getResourceAsStream("/images/study.jpeg")
         .readAllBytes();
+  }
+  
+  /* 6. ResponseEntity 응답 */
+  @GetMapping("/entity")
+  public ResponseEntity<Message> getEntity(){
+    return ResponseEntity.ok(new Message(200,"정상수행"));
   }
 }
 
